@@ -1,0 +1,7 @@
+setup:
+  addons:
+    - plan: heroku-postgresql:hobby-dev
+    - plan: scheduler:standard
+build:
+  docker:
+    web: Dockerfile
