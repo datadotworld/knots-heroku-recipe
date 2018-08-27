@@ -4,7 +4,7 @@ Executes a KNOTS pipeline in a Heroku environment.
 
 ## Getting Started
 
-1. Create a [KNOTS](link to knots) pipeline.
+1. Create a [KNOTS](https://github.com/singer-io/knots) pipeline.
 2. Click this button and drop zip in the heroku folder.
 3. You will need your own [Heroku](https://www.heroku.com) account. The account will need to be
 [verified](https://devcenter.heroku.com/articles/account-verification), meaning that you'll need to put in your credit
