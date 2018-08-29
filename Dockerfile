@@ -1,10 +1,15 @@
-FROM python:3.6
+FROM debian:9
 
 WORKDIR /app
 
-COPY knot knot
-COPY Makefile .
+RUN apt-get -y update && \
+    apt-get -y install curl \
+                       git \
+                       postgresql-client \
+                       unzip
 
-RUN make setup-py-envs
+RUN curl https://cli-assets.heroku.com/install.sh | sh
 
-CMD ["make", "sync"]
+COPY heroku .
+
+CMD ["bash", "heroku/deploy.sh"]

@@ -9,11 +9,7 @@ Executes a KNOTS pipeline in a Heroku environment.
 3. You will need your own [Heroku](https://www.heroku.com) account. The account will need to be
 [verified](https://devcenter.heroku.com/articles/account-verification), meaning that you'll need to put in your credit
 card info, although it's highly unlikely that you'll go past the bounds of the free tier.
-4. Deploy to Heroku by pressing the fancy-looking button above
-    * This integration was designed to save all of the Redshift tables into one dataset, but can be configured to save
-    to multiple datasets. Take a look at the [Storing Tables in Multiple Datasets](#storing-tables-in-multiple-datasets)
-    section.
-    * Take a look at the [Config Vars](#config-vars) section for more details on the individual configuration variables
+4. Deploy
 5. Once deployment is done, click on 'Manage App' to go to the app's 'Overview' page
 6. Under 'Installed add-ons', click on 'Heroku Scheduler' (Scrap that; instead, add the addon)
 7. Add a new job. The command to use is `make update`.
