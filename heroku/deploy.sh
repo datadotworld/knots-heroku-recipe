@@ -11,15 +11,17 @@ heroku update beta
 heroku plugins:install @heroku-cli/plugin-manifest
 
 # Extract the knot folder
-unzip "knots/${KNOT}.zip" -d knot
+unzip "knots/${KNOT}.zip"
+
+GIT_REPO="knots/.git-${KNOT}"
 
 # Commit the latest content
-if [ -d "knots/.git_${KNOT}" ] ; then
-  cp -r "knots/.git_${KNOT}" .git
+if [ -d ${GIT_REPO} ] ; then
+  cp -r ${GIT_REPO} .git
 fi
 
 git init
-git add -f knot Dockerfile Makefile heroku.yml requirements.txt
+git add -f ${KNOT} Dockerfile Makefile heroku.yml requirements.txt
 git config user.name 'data.world'
 git config user.email 'help@data.world'
 git commit -m "${timestamp}"
@@ -32,6 +34,6 @@ APPNAME=$(git remote get-url heroku | pcregrep -o1 '^https://.*/(.*).git$')
 
 # Push the contents
 git push heroku master
-cp -r .git "knots/.git_${KNOT}"
+cp -r .git ${GIT_REPO}
 
 echo "https://dashboard.heroku.com/apps/${APPNAME}"

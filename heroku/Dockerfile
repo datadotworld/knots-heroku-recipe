@@ -5,6 +5,6 @@ WORKDIR /app
 COPY knot knot
 COPY Makefile .
 
-RUN make setup-py-envs
+RUN make initial-setup
 
 CMD ["make", "sync"]
