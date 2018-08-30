@@ -12,4 +12,4 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 
 COPY heroku .
 
-CMD ["bash", "heroku/deploy.sh"]
+CMD ["bash", "deploy.sh"]
