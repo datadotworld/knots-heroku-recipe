@@ -12,8 +12,7 @@ heroku plugins:install @heroku-cli/plugin-manifest
 
 # Extract the knot folder
 unzip "knots/${KNOT}.zip"
-KNOT_FILES=$(ls ${KNOT}/${KNOT}/)
-mv ${KNOT}/${KNOT}/* .
+mv ${KNOT}/${KNOT} knot
 
 GIT_REPO="knots/.git-${KNOT}"
 
@@ -23,7 +22,7 @@ if [ -d ${GIT_REPO} ] ; then
 fi
 
 git init
-git add -f ${KNOT_FILES} tap Dockerfile Makefile heroku.yml requirements.txt
+git add -f knot Dockerfile Makefile heroku.yml requirements.txt
 git config user.name 'data.world'
 git config user.email 'help@data.world'
 git commit -m "${timestamp}"
