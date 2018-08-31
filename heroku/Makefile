@@ -25,10 +25,11 @@ ifneq ("${LATEST_STATE}", "(0 rows)")
 	echo "${LATEST_STATE}" > knot/tap/state.json
 endif
 
-save-to-db:
+run-knot-sync: fetch-from-db
+	$(MAKE) -C knot py-sync
+
+save-to-db: run-knot-sync
 	$(eval LATEST_STATE=$(shell tail -1 "knot/tap/state.json"))
 	echo ${INSERT_CMD} | psql ${DATABASE_URL}
 
-sync: fetch-from-db
-	$(MAKE) -C knot py-sync
-#	$(MAKE) save-to-db
+sync: save-to-db
