@@ -34,17 +34,6 @@ Try to write a test that reproduces the problem you're trying to fix or describe
 
 We definitely appreciate pull requests that highlight or reproduce a problem, even without a fix.
 
-### Write Code
-
-Implement your feature or bug fix. Make sure that all tests pass without errors.
-
-Also, to make sure that your code follows our coding style guide and best practices, run the command;
-
-```sh
-$ flake8
-```
-Make sure to fix any errors that appear, if any.
-
 ### Write Documentation
 
 Document any external behavior in the [README](README.md).

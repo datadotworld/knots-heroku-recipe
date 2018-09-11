@@ -16,13 +16,13 @@ setup-py-envs:
 	$(MAKE) -C knot setup-py-envs
 
 setup-postgres:
-	echo ${CREATE_TABLE_CMD} | psql ${DATABASE_URL}
+	echo $(CREATE_TABLE_CMD) | psql $(DATABASE_URL)
 
 initial-setup: setup-py-envs setup-postgres
 
 fetch-from-db:
-ifneq ("${LATEST_STATE}", "(0 rows)")
-	echo "${LATEST_STATE}" > knot/tap/state.json
+ifneq ("$(LATEST_STATE)", "(0 rows)")
+	echo "$(LATEST_STATE)" > knot/tap/state.json
 endif
 
 run-knot-sync: fetch-from-db
@@ -30,6 +30,6 @@ run-knot-sync: fetch-from-db
 
 save-to-db: run-knot-sync
 	$(eval LATEST_STATE=$(shell tail -1 "knot/tap/state.json"))
-	echo ${INSERT_CMD} | psql ${DATABASE_URL}
+	echo $(INSERT_CMD) | psql $(DATABASE_URL)
 
 sync: save-to-db
