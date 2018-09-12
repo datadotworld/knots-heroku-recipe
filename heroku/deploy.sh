@@ -35,6 +35,7 @@ APPNAME=$(git remote get-url heroku | pcregrep -o1 '^https://.*/(.*).git$')
 
 # Push the contents
 git push heroku master
+# TODO turn off web dyno
 cp -r .git ${GIT_REPO}
 
 echo "App URL: https://dashboard.heroku.com/apps/${APPNAME}"
