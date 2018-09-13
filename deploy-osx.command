@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o errexit -o nounset -o xtrace
+set -o errexit -o nounset
 cd -- "$(dirname "$0")"
 
 if ! KNOT_EXPORTS=$(ls -a knots | pcregrep -o1 '(.*).zip') ; then
