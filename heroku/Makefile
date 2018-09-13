@@ -28,7 +28,7 @@ setup-postgres:
 initial-setup: setup-py-envs
 
 fetch-from-db:
-ifneq ("$(LATEST_STATE)", "(0 rows)")
+ifneq ("$(LATEST_STATE)", "(0rows)")
 	echo '$(LATEST_STATE)' > knot/tap/state.json
 endif
 
