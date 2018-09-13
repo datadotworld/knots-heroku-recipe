@@ -27,3 +27,5 @@ fi
 IMAGE=$(echo ${SELECTED_KNOT} | tr '[:upper:]' '[:lower:]')
 docker build -t ${IMAGE} .
 docker run -it -v $(pwd)/knots:/app/knots --env KNOT=${SELECTED_KNOT} ${IMAGE}
+
+echo "Done!"
