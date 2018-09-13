@@ -9,15 +9,15 @@ LATEST_STATE_CMD:="SELECT state \
                    LIMIT 1"
 
 TABLE_EXISTS_CMD:="SELECT EXISTS ( \
-                   SELECT * \
-                   FROM information_schema.tables \
-                   WHERE table_schema = 'public' \
-                     AND table_name = 'state')"
+                     SELECT * \
+                     FROM information_schema.tables \
+                     WHERE table_schema = 'public' \
+                       AND table_name = 'state')"
 
 INSERT_CMD='INSERT INTO state (state) VALUES ('\''${LATEST_STATE}'\'')'
 
-LATEST_STATE:=$(shell echo "${LATEST_STATE_CMD}" | psql "${DATABASE_URL}" | sed -n 3p | tr -d "[:blank:]")
-TABLE_EXISTS:=$(shell echo "${TABLE_EXISTS_CMD}" | psql "${DATABASE_URL}" | sed -n 3p | xargs)
+LATEST_STATE:=$(shell echo ${LATEST_STATE_CMD} | psql "${DATABASE_URL}" | sed -n 3p | tr -d "[:blank:]")
+TABLE_EXISTS:=$(shell echo ${TABLE_EXISTS_CMD} | psql "${DATABASE_URL}" | sed -n 3p | xargs)
 
 setup-py-envs:
 	$(MAKE) -C knot setup-py-envs
