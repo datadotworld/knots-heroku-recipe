@@ -1,4 +1,5 @@
 .idea
 knots/.git-*
 
+.DS_Store
 *.zip

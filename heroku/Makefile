@@ -1,6 +1,6 @@
 CREATE_TABLE_CMD:="CREATE TABLE state ( \
                      id SERIAL PRIMARY KEY, \
-                     state VARCHAR(255) NOT NULL \
+                     state TEXT NOT NULL \
                    )"
 
 LATEST_STATE_CMD:="SELECT state \
